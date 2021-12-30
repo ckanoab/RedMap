@@ -332,7 +332,8 @@ If <i>Web Path</i> is left empty, then by default <code>⌘⇧m</code> - <code>c
         { value: "TL", label: "Place Labels" },
         { value: "HM", label: "Heatmap" }
     ]
-    var lnk = document.location.host+RED.settings.httpNodeRoot+"/worldmap";
+    var urlBase = document.location.host+RED.settings.httpNodeRoot;
+    var lnk = urlBase + "/worldmap";
     lnk = lnk.replace(new RegExp('\/{1,}','g'),'/');
     if (!RED.hasOwnProperty("actions")) {
         RED.keyboard.add("*",/* m */ 77,{ctrl:true, shift:true},function() { window.open(document.location.protocol+"//"+lnk) });
@@ -438,7 +439,7 @@ If <i>Web Path</i> is left empty, then by default <code>⌘⇧m</code> - <code>c
         }
     });
 
-    $.get('/-ui-worldmap', function (data) {
+    $.get(urlBase + '/-ui-worldmap', function (data) {
         if (data === "true") {
             RED.nodes.registerType('ui_worldmap',{
                 category: 'dashboard',
