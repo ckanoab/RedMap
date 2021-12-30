@@ -525,7 +525,8 @@ module.exports = function(RED) {
     }
     RED.nodes.registerType("worldmap-hull",WorldMapHull);
 
-    RED.httpNode.get(RED.settings.httpNodeRoot + "/-ui-worldmap", function(req, res) {
+    var uiURL = path.posix.join(RED.settings.httpNodeRoot,"/-ui-worldmap");
+    RED.httpNode.get(uiURL, function(req, res) {
         res.send(ui ? "true": "false");
     });
 }
