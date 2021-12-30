@@ -439,7 +439,7 @@ If <i>Web Path</i> is left empty, then by default <code>⌘⇧m</code> - <code>c
         }
     });
 
-    $.get(urlBase + '/-ui-worldmap', function (data) {
+    $.get("//" + urlBase + '-ui-worldmap', function (data) {
         if (data === "true") {
             RED.nodes.registerType('ui_worldmap',{
                 category: 'dashboard',
